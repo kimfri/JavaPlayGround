@@ -11,11 +11,16 @@ public class GreenColor implements ShapeColor {
     }
 
     @Override
-    public String printColor() {
+    public String getColorCode() {
         if(color == null) {
             return "No Color";
         } else {
-            return "Color: " + color.getRGB();
+            return "Color: " + Integer.toHexString(color.getRGB());
         }
+    }
+
+    @Override
+    public void setColor(Color color) {
+        this.color = color;
     }
 }

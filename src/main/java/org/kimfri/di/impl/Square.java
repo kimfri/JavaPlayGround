@@ -7,9 +7,4 @@ public class Square implements Shape {
     public void drawShape() {
         System.out.println("Inside Square-DrawShape");
     }
-
-    @Override
-    public String imA() {
-        return "Square";
-    }
 }
