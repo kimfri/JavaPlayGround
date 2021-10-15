@@ -15,6 +15,9 @@
         <Logger name="org.kimfri.slf" level="info" additivity="true">
             <AppenderRef ref="Console"/>
         </Logger>
+        <Logger name="org.kimfri.lombockStuff" level="info" additivity="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
 
     </Loggers>
 </Configuration>
