@@ -6,7 +6,6 @@ import com.google.inject.Injector;
 import org.kimfri.di.api.Shape;
 import org.kimfri.di.api.ShapeColor;
 import org.kimfri.di.impl.GreenColor;
-import org.kimfri.di.impl.Rectangle;
 import org.kimfri.di.impl.Square;
 
 public class Service {

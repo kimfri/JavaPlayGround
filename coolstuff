@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+mvn clean package dependency:copy-dependencies
+
+CP=""
+for f in target/dependency/*
+do
+  CP="$CP;$f"
+done
+CP=target/SomeTests-1.0-SNAPSHOT.jar$CP
+
+#java -cp $CP org.kimfri.slf.SlfCli 
+
+java -cp $CP org.kimfri.di.Service
