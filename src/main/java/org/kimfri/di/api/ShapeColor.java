@@ -1,5 +1,8 @@
 package org.kimfri.di.api;
 
+import java.awt.*;
+
 public interface ShapeColor {
-    String printColor();
+    String getColorCode();
+    void setColor(Color color);
 }
