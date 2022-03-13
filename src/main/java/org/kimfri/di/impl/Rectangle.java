@@ -8,4 +8,9 @@ public class Rectangle implements Shape {
     public void drawShape() {
         System.out.println("Inside Rectangle-drawshape");
     }
+
+    @Override
+    public String imA() {
+        return null;
+    }
 }
