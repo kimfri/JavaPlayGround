@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+package doesthismatter;
+
+option java_package = "org.kimfri.protobuff";
+option java_outer_classname = "SpaceStationOuterClass";
+option java_multiple_files = true;
+
+message Captain {
+  required string name = 1;
+}
+
+message SpaceShip {
+  required string name = 1;
+  optional string cargo = 2;
+}
+
+message SpaceStation {
+  required string name = 1;
+  required Captain captain = 2;
+  required SpaceShip spaceShip = 3;
+}
