@@ -3,14 +3,14 @@ package org.kimfri.json;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import java.io.File;
 import java.io.IOException;
 
 public class Cli {
-    private static final Logger logger = LoggerFactory.getLogger(Cli.class);
+    private static final Logger logger = LogManager.getLogger(Cli.class);
 
     public static void main(String[] args) {
         Cli cli = new Cli();
