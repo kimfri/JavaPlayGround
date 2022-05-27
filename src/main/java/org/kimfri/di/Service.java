@@ -6,7 +6,6 @@ import com.google.inject.Injector;
 import org.kimfri.di.api.Shape;
 import org.kimfri.di.api.ShapeColor;
 import org.kimfri.di.impl.GreenColor;
-import org.kimfri.di.impl.Rectangle;
 import org.kimfri.di.impl.Square;
 
 public class Service {
@@ -17,7 +16,7 @@ public class Service {
 
     private void doit() {
 //        Injector injector = Guice.createInjector(new ShapeModule());
-        Injector injector = Guice.createInjector( new AbstractModule() {
+        Injector injector = Guice.createInjector(new AbstractModule() {
             @Override
             protected void configure() {
 //                bind(Shape.class).to(Rectangle.class);
@@ -25,7 +24,7 @@ public class Service {
                 bind(ShapeColor.class).to(GreenColor.class);
             }
         });
-         Drawer drawer = injector.getInstance(Drawer.class);
-         drawer.print();
+        Drawer drawer = injector.getInstance(Drawer.class);
+        drawer.print();
     }
 }

@@ -4,53 +4,66 @@
 package org.kimfri.protobuff;
 
 public interface SpaceStationOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:doesthismatter.SpaceStation)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:doesthismatter.SpaceStation)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>required string name = 1;</code>
-   * @return Whether the name field is set.
-   */
-  boolean hasName();
-  /**
-   * <code>required string name = 1;</code>
-   * @return The name.
-   */
-  java.lang.String getName();
-  /**
-   * <code>required string name = 1;</code>
-   * @return The bytes for name.
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * @return Whether the name field is set.
+     */
+    boolean hasName();
 
-  /**
-   * <code>required .doesthismatter.Captain captain = 2;</code>
-   * @return Whether the captain field is set.
-   */
-  boolean hasCaptain();
-  /**
-   * <code>required .doesthismatter.Captain captain = 2;</code>
-   * @return The captain.
-   */
-  org.kimfri.protobuff.Captain getCaptain();
-  /**
-   * <code>required .doesthismatter.Captain captain = 2;</code>
-   */
-  org.kimfri.protobuff.CaptainOrBuilder getCaptainOrBuilder();
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * @return The name.
+     */
+    java.lang.String getName();
 
-  /**
-   * <code>required .doesthismatter.SpaceShip spaceShip = 3;</code>
-   * @return Whether the spaceShip field is set.
-   */
-  boolean hasSpaceShip();
-  /**
-   * <code>required .doesthismatter.SpaceShip spaceShip = 3;</code>
-   * @return The spaceShip.
-   */
-  org.kimfri.protobuff.SpaceShip getSpaceShip();
-  /**
-   * <code>required .doesthismatter.SpaceShip spaceShip = 3;</code>
-   */
-  org.kimfri.protobuff.SpaceShipOrBuilder getSpaceShipOrBuilder();
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+    getNameBytes();
+
+    /**
+     * <code>required .doesthismatter.Captain captain = 2;</code>
+     *
+     * @return Whether the captain field is set.
+     */
+    boolean hasCaptain();
+
+    /**
+     * <code>required .doesthismatter.Captain captain = 2;</code>
+     *
+     * @return The captain.
+     */
+    org.kimfri.protobuff.Captain getCaptain();
+
+    /**
+     * <code>required .doesthismatter.Captain captain = 2;</code>
+     */
+    org.kimfri.protobuff.CaptainOrBuilder getCaptainOrBuilder();
+
+    /**
+     * <code>required .doesthismatter.SpaceShip spaceShip = 3;</code>
+     *
+     * @return Whether the spaceShip field is set.
+     */
+    boolean hasSpaceShip();
+
+    /**
+     * <code>required .doesthismatter.SpaceShip spaceShip = 3;</code>
+     *
+     * @return The spaceShip.
+     */
+    org.kimfri.protobuff.SpaceShip getSpaceShip();
+
+    /**
+     * <code>required .doesthismatter.SpaceShip spaceShip = 3;</code>
+     */
+    org.kimfri.protobuff.SpaceShipOrBuilder getSpaceShipOrBuilder();
 }
