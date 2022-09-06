@@ -37,6 +37,17 @@ public class Names {
         names.add("Ebba");
         names.add("Axel");
         names.add("Isac");
+        names.add("Adam");
+        names.add("Bertil");
+        names.add("Cesar");
+        names.add("David");
+        names.add("Erik");
+        names.add("Filip");
+        names.add("Gustav");
+        names.add("Helge");
+        names.add("Ivar");
+        names.add("Johan");
+
         return names;
     }
 }
