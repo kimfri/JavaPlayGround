@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "creationTime": {
+      "type": "string"
+    },
+    "kompisar": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "namn": {
+              "type": "string"
+            },
+            "adresser": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "namn": {
+                      "type": "string"
+                    },
+                    "nummer": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "namn",
+                    "nummer"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "namn": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "namn"
+                  ]
+                }
+              ]
+            },
+            "bostadsader": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "namn": {
+                      "type": "string"
+                    },
+                    "nummer": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "namn"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "creationTime",
+    "kompisar"
+  ]
+}

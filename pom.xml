@@ -109,6 +109,11 @@
             <artifactId>simpleclient_pushgateway</artifactId>
             <version>0.16.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -118,6 +123,23 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
                 <version>3.0.0-M5</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jsonschema2pojo</groupId>
+                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
+                <version>0.4.34</version>
+                <configuration>
+                    <sourceDirectory>${basedir}/src/main/resources/json-schema</sourceDirectory>
+                    <targetPackage>com.test.gen</targetPackage>
+                    <useCommonsLang3>true</useCommonsLang3>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
