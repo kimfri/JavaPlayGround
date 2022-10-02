@@ -13,5 +13,4 @@ class MyCsvParserTest {
         MyCsvParser myCsvParser = new MyCsvParser();
         myCsvParser.parse(path2);
     }
-
 }

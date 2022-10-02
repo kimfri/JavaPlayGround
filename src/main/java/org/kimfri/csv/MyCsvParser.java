@@ -24,7 +24,9 @@ public class MyCsvParser {
                 .forEach(it -> {
                     System.err.println(it.get(Header.FIRST_NAME));
                     System.err.println(it.get(Header.LAST_NAME));
-                    Optional.ofNullable(it.get(Header.AGE)).ifPresent(System.err::println);
+                    if (it.isSet(Header.AGE.name())) {
+                        System.err.println(it.get(Header.AGE));
+                    }
                 });
     }
 }
