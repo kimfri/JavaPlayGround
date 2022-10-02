@@ -8,25 +8,27 @@ import java.nio.file.Path;
 import java.util.Optional;
 
 public class MyCsvParser {
+    private final CSVFormat csvFormat = CSVFormat
+            .Builder
+            .create()
+            .setHeader(Header.class)
+            .setSkipHeaderRecord(true)
+            .setIgnoreEmptyLines(true)
+            .setAllowMissingColumnNames(true)
+            .build();
+
     void parse(Path path) throws IOException {
         final FileReader fileReader = new FileReader(path.toFile());
-        final CSVFormat csvFormat = CSVFormat
-                .Builder
-                .create()
-                .setHeader(Header.class)
-                .setSkipHeaderRecord(true)
-                .setIgnoreEmptyLines(true)
-                .setAllowMissingColumnNames(true)
-                .build();
 
         csvFormat.parse(fileReader)
                 .getRecords()
                 .forEach(it -> {
                     System.err.println(it.get(Header.FIRST_NAME));
                     System.err.println(it.get(Header.LAST_NAME));
-                    if (it.isSet(Header.AGE.name())) {
-                        System.err.println(it.get(Header.AGE));
-                    }
+
+                    Optional.ofNullable(it.isSet(Header.AGE.name()) ? it.get(Header.AGE) : null)
+                            .ifPresent(System.err::println);
+
                 });
     }
 }
