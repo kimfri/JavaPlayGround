@@ -5,7 +5,9 @@ import org.apache.commons.csv.CSVFormat;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class MyCsvParser {
     private final CSVFormat csvFormat = CSVFormat
@@ -17,18 +19,15 @@ public class MyCsvParser {
             .setAllowMissingColumnNames(true)
             .build();
 
-    void parse(Path path) throws IOException {
+    List<Person> parse(Path path) throws IOException {
         final FileReader fileReader = new FileReader(path.toFile());
 
-        csvFormat.parse(fileReader)
+        return csvFormat.parse(fileReader)
                 .getRecords()
-                .forEach(it -> {
-                    System.err.println(it.get(Header.FIRST_NAME));
-                    System.err.println(it.get(Header.LAST_NAME));
-
-                    Optional.ofNullable(it.isSet(Header.AGE.name()) ? it.get(Header.AGE) : null)
-                            .ifPresent(System.err::println);
-
-                });
+                .stream().map(it -> new Person(it.get(Header.FIRST_NAME),
+                         it.get(Header.LAST_NAME),
+                         Optional.ofNullable(it.isSet(Header.AGE.name()) ? it.get(Header.AGE) : null)
+                 ))
+                .collect(Collectors.toList());
     }
 }
