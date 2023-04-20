@@ -4,23 +4,28 @@
 package org.kimfri.protobuff;
 
 public interface CaptainOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:doesthismatter.Captain)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:doesthismatter.Captain)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>required string name = 1;</code>
-   * @return Whether the name field is set.
-   */
-  boolean hasName();
-  /**
-   * <code>required string name = 1;</code>
-   * @return The name.
-   */
-  java.lang.String getName();
-  /**
-   * <code>required string name = 1;</code>
-   * @return The bytes for name.
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * @return Whether the name field is set.
+     */
+    boolean hasName();
+
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * @return The name.
+     */
+    java.lang.String getName();
+
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * @return The bytes for name.
+     */
+    com.google.protobuf.ByteString
+    getNameBytes();
 }
