@@ -6,6 +6,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Meta {
-    private String uuid;
+private String kalle;
     private Timestamp timestamp;
 }
