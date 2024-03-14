@@ -1,0 +1,13 @@
+{
+  "hosts": [
+    {
+      "url": "http://apa.bepa",
+      "port": "8080",
+      "unknown": "not known"
+    },
+    {
+      "url": "http://bepa.apa",
+      "port": "9090"
+    }
+  ]
+}

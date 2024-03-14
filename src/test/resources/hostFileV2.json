@@ -1,0 +1,10 @@
+[
+    {
+      "url": "http://apa.bepa",
+      "port": "8080"
+    },
+    {
+      "url": "http://bepa.apa",
+      "port": "9090"
+    }
+]
