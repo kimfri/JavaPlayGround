@@ -6,21 +6,22 @@ import java.awt.*;
 
 public class GreenColor implements ShapeColor {
 
-    private Color color;
-    public GreenColor() {
-    }
+  private Color color;
 
-    @Override
-    public String getColorCode() {
-        if(color == null) {
-            return "No Color";
-        } else {
-            return "Color: " + Integer.toHexString(color.getRGB());
-        }
-    }
+  public GreenColor() {
+  }
 
-    @Override
-    public void setColor(Color color) {
-        this.color = color;
+  @Override
+  public String getColorCode() {
+    if (color == null) {
+      return "No Color";
+    } else {
+      return "Color: " + Integer.toHexString(color.getRGB());
     }
+  }
+
+  @Override
+  public void setColor(Color color) {
+    this.color = color;
+  }
 }

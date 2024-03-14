@@ -8,19 +8,19 @@ import java.awt.*;
 
 public class Drawer {
 
-    private final Shape shape;
-    private final ShapeColor shapeColor;
+  private final Shape shape;
+  private final ShapeColor shapeColor;
 
-    @Inject
-    public Drawer(Shape shape, ShapeColor shapeColor) {
-        this.shape = shape;
-        this.shapeColor = shapeColor;
-    }
+  @Inject
+  public Drawer(Shape shape, ShapeColor shapeColor) {
+    this.shape = shape;
+    this.shapeColor = shapeColor;
+  }
 
-    public void print() {
-        System.err.println("inside Drawer");
-        shape.drawShape();
-        shapeColor.setColor(Color.GREEN);
-        System.out.println("Color code: " + shapeColor.getColorCode());
-    }
+  public void print() {
+    System.err.println("inside Drawer");
+    shape.drawShape();
+    shapeColor.setColor(Color.GREEN);
+    System.out.println("Color code: " + shapeColor.getColorCode());
+  }
 }

@@ -4,8 +4,8 @@ import org.kimfri.di.api.Shape;
 
 public class Rectangle implements Shape {
 
-    @Override
-    public void drawShape() {
-        System.out.println("Inside Rectangle-drawshape");
-    }
+  @Override
+  public void drawShape() {
+    System.out.println("Inside Rectangle-drawshape");
+  }
 }

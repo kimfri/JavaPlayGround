@@ -8,24 +8,25 @@ import org.kimfri.di.api.ShapeColor;
 import org.kimfri.di.impl.GreenColor;
 import org.kimfri.di.impl.Rectangle;
 import org.kimfri.di.impl.Square;
+import org.kimfri.di.modules.ShapeModule;
 
 public class Service {
-    public static void main(String[] args) {
-        Service service = new Service();
-        service.doit();
-    }
+  public static void main(String[] args) {
+    Service service = new Service();
+    service.doit();
+  }
 
-    private void doit() {
-//        Injector injector = Guice.createInjector(new ShapeModule());
-        Injector injector = Guice.createInjector( new AbstractModule() {
-            @Override
-            protected void configure() {
-//                bind(Shape.class).to(Rectangle.class);
-                bind(Shape.class).to(Square.class);
-                bind(ShapeColor.class).to(GreenColor.class);
-            }
-        });
-         Drawer drawer = injector.getInstance(Drawer.class);
-         drawer.print();
-    }
+  private void doit() {
+        Injector injector = Guice.createInjector(new ShapeModule());
+//    Injector injector = Guice.createInjector(new AbstractModule() {
+//      @Override
+//      protected void configure() {
+////                bind(Shape.class).to(Rectangle.class);
+//        bind(Shape.class).to(Square.class);
+//        bind(ShapeColor.class).to(GreenColor.class);
+//      }
+//    });
+    Drawer drawer = injector.getInstance(Drawer.class);
+    drawer.print();
+  }
 }
