@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 public class Main {
   Logger logger = LogManager.getLogger(Main.class);
   List<String> fileExtensions = List.of(".txt", ".iml");
+  List<String> prefixBlocks = List.of("DEBUG");
 
   public static void main(String[] args) {
     Main main = new Main();
@@ -22,10 +23,10 @@ public class Main {
   private void start() {
     logger.error("Starting something");
 
-    logger.error("AccessKey: " + Configuration.getInstance().getAccessKey());
+    logger.error(() -> String.format("AccessKey: %s", Configuration.getInstance().getAccessKey()));
 
     final List<Path> files = findFiles();
-    logger.error("Amount of files: " + files.size());
+    logger.error(() -> String.format("Amount of files: %d", files.size()));
     for (Path file: files) {
       sendToBucket(file);
     }
@@ -33,8 +34,7 @@ public class Main {
 
   void sendToBucket(Path theFilePath) {
     final String fileNameToStore = theFilePath.getFileName().toString();
-
-    logger.error("File: " + theFilePath.getFileName() + " Will be stored as: " + fileNameToStore);
+    logger.error(() -> String.format("File: %s  Will be stored as: %s", theFilePath.getFileName(), fileNameToStore));
   }
 
   private List<Path> findFiles() {
@@ -43,6 +43,7 @@ public class Main {
           .filter(Files::isRegularFile)
           .map(Path::getFileName)
           .filter(this::isAssumedFileExtension)
+          .filter(this::isPrefixBlocked)
           .collect(Collectors.toList());
     } catch (IOException i) {
       logger.error(i.getMessage(), i);
@@ -54,5 +55,11 @@ public class Main {
     return fileExtensions.stream()
         .anyMatch(extension ->
             path.getFileName().toString().contains(extension));
+  }
+
+  boolean isPrefixBlocked(Path path) {
+    return prefixBlocks.stream()
+        .noneMatch(prefix ->
+            path.getFileName().toString().startsWith(prefix));
   }
 }
