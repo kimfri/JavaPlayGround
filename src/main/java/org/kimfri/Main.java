@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
@@ -27,7 +26,7 @@ public class Main {
 
     final List<Path> files = findFiles();
     logger.error(() -> String.format("Amount of files: %d", files.size()));
-    for (Path file: files) {
+    for (Path file : files) {
       sendToBucket(file);
     }
   }
@@ -44,7 +43,7 @@ public class Main {
           .map(Path::getFileName)
           .filter(this::isAssumedFileExtension)
           .filter(this::isPrefixBlocked)
-          .collect(Collectors.toList());
+          .toList();
     } catch (IOException i) {
       logger.error(i.getMessage(), i);
     }
