@@ -7,6 +7,8 @@ public class Main {
   private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
   static void main() {
-
+    new Car().whoAmI();
   }
+
+
 }
