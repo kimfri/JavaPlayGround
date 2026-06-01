@@ -1,22 +1,10 @@
 package org.kimfri;
 
-public class Car implements Vehicle {
-  private final String brand;
-  private final String model;
-  private final int year;
-
-  public Car(String brand, String model, int year) {
-    this.brand = brand;
-    this.model = model;
-    this.year = year;
-  }
-
-  @Override
-  public String toString() {
-    return "Car{" +
-        "brand='" + brand + '\'' +
-        ", model='" + model + '\'' +
-        ", year=" + year +
-        '}';
-  }
+public record Car(String brand, String model, int year) implements Vehicle {
+  // Compact canonical constructor for validation
+//  public Car {
+//    if (brand == null || brand.isBlank()) throw new IllegalArgumentException("Brand must not be blank");
+//    if (model == null || model.isBlank()) throw new IllegalArgumentException("Model must not be blank");
+//    if (year < 1886 || year > 2100)       throw new IllegalArgumentException("Invalid year: " + year);
+//  }
 }

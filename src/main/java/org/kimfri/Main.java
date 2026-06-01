@@ -4,33 +4,34 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Main {
+
   private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
-  private final VehicleFactory<String, String, Integer> carFactory = Car::new;
-  private final VehicleFactory<String, String, Integer> truckFactory = Truck::new;
+  // Fully typed – no raw types, satisfies S3740
+  private final VehicleFactory<Car>   carFactory   = Car::new;
+  private final VehicleFactory<Truck> truckFactory = Truck::new;
 
-  static void main() {
-    Main main = new Main();
-    main.doit();
+  public static void main(String[] args) {
+    new Main().run();
   }
 
-  private void doit() {
+  private void run() {
+    Car   car   = carFactory.create("BMW", "M3", 2018);
+    Truck truck = truckFactory.create("Mack", "F45", 2026);
 
-    Vehicle car = carFactory.create("BMW", "M", 2018);
-    LOGGER.error(() -> "Car Factory: " + car);
+    LOGGER.info("Created: {}", car);
+    LOGGER.info("Created: {}", truck);
+
     printVehicleType(car);
-    final Vehicle truck = truckFactory.create("Mack", "F45", 2026);
-    LOGGER.error(() -> "Truck Factory: " + truck);
     printVehicleType(truck);
   }
 
   void printVehicleType(Vehicle vehicle) {
-    if (vehicle instanceof Car) {
-      LOGGER.error(() -> "It's a Car");
-    } else if (vehicle instanceof Truck) {
-      LOGGER.error(() -> "It's a Truck");
-    } else {
-      LOGGER.error(() -> "Unknown Vehicle");
-    }
+    String description = switch (vehicle) {
+      case Car   c -> "Car:   %s %s (%d)".formatted(c.brand(), c.model(), c.year());
+      case Truck t -> "Truck: %s %s (%d)".formatted(t.brand(), t.model(), t.year());
+      default      -> "Unknown vehicle: " + vehicle;
+    };
+    LOGGER.info(description);
   }
 }

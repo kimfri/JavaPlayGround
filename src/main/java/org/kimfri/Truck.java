@@ -1,22 +1,9 @@
 package org.kimfri;
 
-public class Truck implements Vehicle {
-  private final String brand;
-  private final String model;
-  private final int year;
-
-  public Truck(String brand, String model, int year) {
-    this.brand = brand;
-    this.model = model;
-    this.year = year;
-  }
-
-  @Override
-  public String toString() {
-    return "Truck{" +
-        "brand='" + brand + '\'' +
-        ", model='" + model + '\'' +
-        ", year=" + year +
-        '}';
-  }
+public record Truck(String brand, String model, int year) implements Vehicle {
+//  public Truck {
+//    if (brand == null || brand.isBlank()) throw new IllegalArgumentException("Brand must not be blank");
+//    if (model == null || model.isBlank()) throw new IllegalArgumentException("Model must not be blank");
+//    if (year < 1886 || year > 2100)       throw new IllegalArgumentException("Invalid year: " + year);
+//  }
 }
